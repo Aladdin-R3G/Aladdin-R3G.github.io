@@ -13,12 +13,12 @@ div {
     padding: 0.6cm;
 }
 
-#bar{
+.bar{
     display: flex;
 }
 
 .element-of-bar {
-    margin-right: 2cm;
+    margin-right: 3cm;
     padding: 0.6cm;
 }
 
@@ -40,4 +40,5 @@ p{
 }
 li {
     list-style-type: none;
+    
 }
