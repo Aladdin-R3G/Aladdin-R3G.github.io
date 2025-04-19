@@ -20,18 +20,18 @@
             <ul class="bar" style="height: 100%;">
                 <li>
                     <ul style="padding-left: 0;">
-                        <li class="tool-button">encoder/decoder</li>
+                        <li class="tool-button" id="enDeButton">encoder/decoder</li>
                         <br>
-                        <li class="tool-button">length ruler</li>
+                        <li class="tool-button" id="counterButton">length ruler</li>
                         <br>
-                        <li class="tool-button">CTF RSA Decryption</li>
+                        <li class="tool-button" id="decryptButton">CTF RSA Decryption</li>
                     </ul>
                 </li>
-                <li style="width: 79%;" >
+                <li style="width: 79%;" id="default">
                     <h3>Tools</h3>
                     <p style="width: 80%;">hello there, this is just a collection of tools i find myself googling websites for when i'm participating in a ctf on my windows pc, hope these tools help you in some way</p>
                 </li>
-                <li id="encoder/decoder" style="width: 70%;" hidden>
+                <li id="enDecoder-interface" style="width: 70%;" hidden>
                     <div>
                         <ul>
                             <li>
@@ -48,7 +48,7 @@
                         </ul>
                     </div>
                 </li>
-                <li style="width: 79%;" hidden>
+                <li id="counter-interface" style="width: 79%;" hidden>
                     <ul>
                         <li>
                             <textarea id="counter-input" style="height: 70%;width: 90%;background-color: rgb(44, 48, 48);border: 0cap;resize: none;"></textarea>
@@ -58,6 +58,11 @@
                             number of characters: <p id="count"></p>
                         </li>
                     </ul>
+                </li>
+                <li id="decrypt-interface" style="width: 79%;" hidden>
+                    <h3>
+                        still under construction ;(
+                    </h3>
                 </li>
             </ul>
         </div>
@@ -70,14 +75,60 @@
             </ul>
         </div>
         <script>
+
+            //code for switching tools
+
+            function switchToEnDeconder(){
+                if(document.getElementById("enDecoder-interface").hidden){
+                    document.getElementById("default").setAttribute("hidden","")
+                    document.getElementById("counter-interface").setAttribute("hidden","")
+                    document.getElementById("decrypt-interface").setAttribute("hidden","")
+                    document.getElementById("enDecoder-interface").removeAttribute("hidden")
+                }
+                else{
+                    document.getElementById("default").removeAttribute("hidden") 
+                    document.getElementById("enDecoder-interface").setAttribute("hidden","") 
+                }
+            }
+            function switchToCounter(){
+                if(document.getElementById("counter-interface").hidden){
+                    document.getElementById("default").setAttribute("hidden","")
+                    document.getElementById("enDecoder-interface").setAttribute("hidden","")
+                    document.getElementById("decrypt-interface").setAttribute("hidden","")
+                    document.getElementById("counter-interface").removeAttribute("hidden")
+                }
+                else{
+                    document.getElementById("default").removeAttribute("hidden") 
+                    document.getElementById("counter-interface").setAttribute("hidden","")
+                }
+            }
+            function switchToDecrypt(){
+                if(document.getElementById("decrypt-interface").hidden){
+                    document.getElementById("default").setAttribute("hidden","")
+                    document.getElementById("enDecoder-interface").setAttribute("hidden","")
+                    document.getElementById("counter-interface").setAttribute("hidden","")
+                    document.getElementById("decrypt-interface").removeAttribute("hidden")
+                }
+                else{
+                    document.getElementById("default").removeAttribute("hidden") 
+                    document.getElementById("decrypt-interface").setAttribute("hidden","") 
+                }
+            }
+
+
+            document.getElementById("enDeButton").onclick = switchToEnDeconder
+            document.getElementById("counterButton").onclick = switchToCounter
+            document.getElementById("decryptButton").onclick = switchToDecrypt
+
+            //code of the encoding and decoding tool
             Myselect = document.getElementById("encoding-type")
-            type = Myselect.options[ Myselect.selectedIndex ].value
+
             function binDecode(){
                 let str = ""
                 let dec = []
                 let input  = document.getElementById("en-input").value
                 for(let i = 0; i < input.length; i+=8){    
-                    dec.push(parseInt(input.substr(i,i+8),2))
+                    dec.push(parseInt(input.substring(i,i+8),2))
                 }
                 for(let i = 0; i < dec.length; i++){
                     str += String.fromCharCode(dec[i])
@@ -91,7 +142,7 @@
                 let dec = []
                 let input  = document.getElementById("en-input").value
                 for(let i = 0; i < input.length; i+=2){    
-                    dec.push(parseInt(input.substr(i,i+2),16))
+                    dec.push(parseInt(input.substring(i,i+2),16))
                 }
                 for(let i = 0; i < dec.length; i++){
                     str += String.fromCharCode(dec[i])
@@ -106,26 +157,45 @@
             function hexEncode(){
                 // to do
             }
-            function b64decode() {
+            function b64Decode() {
                 let input = document.getElementById('en-input').value
                 document.getElementById('en-output').innerHTML = Base64.decode(input)
             }
-            function b64encode() {
+            function b64Encode() {
                 let input = document.getElementById('en-input').value
                 document.getElementById('en-output').innerHTML = Base64.encode(input)
             }
-            if(type == "base 64"){
-                document.getElementById("Encode").onclick = b64encode
-                document.getElementById("Decode").onclick = b64decode
+            
+            
+            function checkThenCallEn(){
+                type = Myselect.options[ Myselect.selectedIndex ].value
+                if(type == "base 64"){
+                    b64Encode()
+                }
+                if(type == "hex"){
+                    hexEncode()
+                }
+                if(type == "binary"){
+                    binEncode()
+                }
             }
-            if(type == "hex"){
-                document.getElementById("Encode").onclick = hexEncode
-                document.getElementById("Decode").onclick = hexDecode
+            function checkThenCallDe(){
+                type = Myselect.options[ Myselect.selectedIndex ].value
+                if(type == "base 64"){
+                    b64Decode()
+                }
+                if(type == "hex"){
+                    hexDecode()
+                }
+                if(type == "binary"){
+                    binDecode()
+                }
             }
-            if(type == "binary"){
-                document.getElementById("Encode").onclick = binEncode
-                document.getElementById("Decode").onclick = binDecode
-            }
+            
+            document.getElementById("Encode").onclick = checkThenCallEn
+            document.getElementById("Decode").onclick = checkThenCallDe
+
+
         </script>
     </body>
 </html>
