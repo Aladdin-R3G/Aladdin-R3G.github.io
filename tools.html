@@ -1,0 +1,130 @@
+<html>
+    <head>
+        <title>a R3GUL4R website</title>
+        <link rel="stylesheet" href="styles.css">
+        <script src="https://cdn.jsdelivr.net/npm/js-base64@3.7.7/base64.min.js"></script>
+    </head>
+    <body>
+        <div>
+            <h2 id="title">R3GUL4R's website</h2>
+        </div>
+        <div>
+            <ul class="bar" style="padding: 0;">
+                <li class="element-of-bar" style="width: 25%;"><a href="/index.html"><h2>home</h2></a></li>
+                <li class="element-of-bar" style="width: 25%;"><a href="/CV.html"><h2>CV</h2></a></li>
+                <li class="element-of-bar" style="width: 25%;"><a href="/tools.html"><h2>tools</h2></a></li>
+                <li class="element-of-bar" style="width: 25%;"><a href="/projects.html"><h2>projects</h2></a></li>
+            </ul>
+        </div>
+        <div style="padding-top: 0.5cm;height: 80%" >
+            <ul class="bar" style="height: 100%;">
+                <li>
+                    <ul style="padding-left: 0;">
+                        <li class="element-of-bar" style="margin-right: 1cm;background-color: rgb(34, 38, 38);">encoder/decoder</li>
+                        <br>
+                        <li class="element-of-bar" style="margin-right: 1cm;background-color: rgb(34, 38, 38);">length ruler</li>
+                        <br>
+                        <li class="element-of-bar" style="margin-right: 1cm;background-color: rgb(34, 38, 38);border-color: rgb(44, 48, 48);border: 1cm;">CTF RSA Decryption</li>
+                    </ul>
+                </li>
+                <li style="width: 79%;" >
+                    <h3>Tools</h3>
+                    <p style="width: 80%;">hello there, this is just a collection of tools i find myself googling websites for when i'm participating in a ctf on my windows pc, hope these tools help you in some way</p>
+                </li>
+                <li id="encoder/decoder" style="width: 70%;" hidden>
+                    <div>
+                        <ul>
+                            <li>
+                                <textarea id="en-input" style="height: 40%;width: 90%;background-color: rgb(44, 48, 48);border: 0cap;resize: none;"></textarea>
+                            </li>
+                                <button id="Encode">Encode</button>
+                                <select id="encoding-type">
+                                    <option value="base 64" selected>Base 64</option>
+                                    <option value="hex">Hex</option>
+                                    <option value="binary">Binary</option>
+                                </select>
+                                <button id="Decode">Decode</button>
+                        </ul>
+                    </div>
+                </li>
+                <li style="width: 79%;" hidden>
+                    <ul>
+                        <li>
+                            <textarea id="en-input" style="height: 70%;width: 90%;background-color: rgb(44, 48, 48);border: 0cap;resize: none;"></textarea>
+                        </li>
+                        <li>
+                            <button>count</button>
+                            number of characters: <p id="count"></p>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="footer">
+            <ul class="bar" style="padding: 0;">
+                <li class="element-of-footer"><a href="https://github.com/Aladdin-R3G" target="_blank"><img src="https://i.imgur.com/tXkSwiE.png" width="30" height="30"></a></li>
+                <li class="element-of-footer"><a href="https://unstop.com/u/aladdsai61602" target="_blank"><img src="https://i.imgur.com/Jpgsgqk.png" width="30" height="30"></a></li>
+                <li class="element-of-footer"><a href="http://discordapp.com/users/1293180124543451166" target="_blank"><img src="https://i.imgur.com/M8SxsfO.png" height="30" width="30"></a></li>
+                <li class="element-of-footer"><a href="mailto:sdgamerdz@gmail.com" target="_blank"><img src="https://i.imgur.com/tayS3Sv.png" height="30" width="30"></a></li>
+            </ul>
+        </div>
+        <script>
+            Myselect = document.getElementById("encoding-type")
+            type = Myselect.options[ Myselect.selectedIndex ].value
+            function binDecode(){
+                let str = ""
+                let dec = []
+                let input  = document.getElementById("en-input").value
+                for(let i = 0; i < input.length; i+=8){    
+                    dec.push(parseInt(input.substr(i,i+8),2))
+                }
+                for(let i = 0; i < dec.length; i++){
+                    str += String.fromCharCode(dec[i])
+                }
+                console.log(dec)
+                console.log(str)
+                document.getElementById('en-output').innerHTML = str
+            }
+            function hexDecode(){
+                let str = ""
+                let dec = []
+                let input  = document.getElementById("en-input").value
+                for(let i = 0; i < input.length; i+=2){    
+                    dec.push(parseInt(input.substr(i,i+2),16))
+                }
+                for(let i = 0; i < dec.length; i++){
+                    str += String.fromCharCode(dec[i])
+                }
+                console.log(dec)
+                console.log(str)
+                document.getElementById('en-output').innerHTML = str
+            }
+            function binEncode(){
+                //to do
+            }
+            function hexEncode(){
+                // to do
+            }
+            function b64decode() {
+                let input = document.getElementById('en-input').value
+                document.getElementById('en-output').innerHTML = Base64.decode(input)
+            }
+            function b64encode() {
+                let input = document.getElementById('en-input').value
+                document.getElementById('en-output').innerHTML = Base64.encode(input)
+            }
+            if(type == "base 64"){
+                document.getElementById("Encode").onclick = b64encode
+                document.getElementById("Decode").onclick = b64decode
+            }
+            if(type == "hex"){
+                document.getElementById("Encode").onclick = hexEncode
+                document.getElementById("Decode").onclick = hexDecode
+            }
+            if(type == "binary"){
+                document.getElementById("Encode").onclick = binEncode
+                document.getElementById("Decode").onclick = binDecode
+            }
+        </script>
+    </body>
+</html>

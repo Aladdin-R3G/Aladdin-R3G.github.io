@@ -1,4 +1,9 @@
+html {
+    height: 100%;
+}
+
 body {
+    height: 100%;
     color: rgb(130, 139, 139);
     background-color: rgb(44, 48, 48);
     
@@ -18,8 +23,14 @@ div {
 }
 
 .element-of-bar {
-    margin-right: 3cm;
+    text-align: center;
     padding: 0.6cm;
+}
+.element-of-footer {
+    text-align: center;
+    width: 25%;
+    padding: 0.6cm;
+    padding-top: 0.1cm;
 }
 
 a{
@@ -40,5 +51,27 @@ p{
 }
 li {
     list-style-type: none;
-    
+}
+button {
+    background-color: rgb(44, 48, 48) ;
+    margin: 1%;
+    padding: 1.2%;
+    margin-left: 0;
+    border: 0;
+}
+
+.footer {
+    padding: 0.1px;
+    margin-top: 0.5cm;
+    height: 12%;
+}
+
+select{
+    background-color: rgb(44, 48, 48);
+    border: 0;
+    padding: 1.2%;
+    width: 25%;
+    margin-left: 23.5%;
+    margin-right: 23.5%;
+    text-align: center;
 }
