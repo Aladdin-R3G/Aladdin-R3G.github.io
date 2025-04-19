@@ -53,11 +53,16 @@ li {
     list-style-type: none;
 }
 button {
+    cursor: pointer;
     background-color: rgb(44, 48, 48) ;
     margin: 1%;
     padding: 1.2%;
     margin-left: 0;
     border: 0;
+    transition-duration: 0.4s;
+}
+button:hover{
+    background-color: rgb(130, 139, 139);
 }
 
 .footer {
@@ -74,4 +79,16 @@ select{
     margin-left: 23.5%;
     margin-right: 23.5%;
     text-align: center;
+}
+.tool-button{
+    text-align: center;
+    padding: 0.6cm;
+    transition-duration: 0.4s;
+    margin-right: 1cm;
+    background-color: rgb(34, 38, 38);
+    cursor: pointer;
+}
+.tool-button:hover{
+    background-color: rgb(100, 109, 109);
+    color: rgb(34, 38, 38);
 }

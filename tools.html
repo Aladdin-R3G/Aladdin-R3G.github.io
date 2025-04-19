@@ -10,21 +10,21 @@
         </div>
         <div>
             <ul class="bar" style="padding: 0;">
-                <li class="element-of-bar" style="width: 25%;"><a href="/index.html"><h2>home</h2></a></li>
+                <li class="element-of-bar" style="width: 25%;"><a href="/index.html"><h2>Home</h2></a></li>
                 <li class="element-of-bar" style="width: 25%;"><a href="/CV.html"><h2>CV</h2></a></li>
-                <li class="element-of-bar" style="width: 25%;"><a href="/tools.html"><h2>tools</h2></a></li>
-                <li class="element-of-bar" style="width: 25%;"><a href="/projects.html"><h2>projects</h2></a></li>
+                <li class="element-of-bar" style="width: 25%;"><a href="/tools.html"><h2>Tools</h2></a></li>
+                <li class="element-of-bar" style="width: 25%;"><a href="/projects.html"><h2>Projects</h2></a></li>
             </ul>
         </div>
         <div style="padding-top: 0.5cm;height: 80%" >
             <ul class="bar" style="height: 100%;">
                 <li>
                     <ul style="padding-left: 0;">
-                        <li class="element-of-bar" style="margin-right: 1cm;background-color: rgb(34, 38, 38);">encoder/decoder</li>
+                        <li class="tool-button">encoder/decoder</li>
                         <br>
-                        <li class="element-of-bar" style="margin-right: 1cm;background-color: rgb(34, 38, 38);">length ruler</li>
+                        <li class="tool-button">length ruler</li>
                         <br>
-                        <li class="element-of-bar" style="margin-right: 1cm;background-color: rgb(34, 38, 38);border-color: rgb(44, 48, 48);border: 1cm;">CTF RSA Decryption</li>
+                        <li class="tool-button">CTF RSA Decryption</li>
                     </ul>
                 </li>
                 <li style="width: 79%;" >
@@ -44,13 +44,14 @@
                                     <option value="binary">Binary</option>
                                 </select>
                                 <button id="Decode">Decode</button>
+                            <p id="en-output" style="width: 90%; height: 40%;background-color: rgb(44, 48, 48);margin: 0;"></p>
                         </ul>
                     </div>
                 </li>
                 <li style="width: 79%;" hidden>
                     <ul>
                         <li>
-                            <textarea id="en-input" style="height: 70%;width: 90%;background-color: rgb(44, 48, 48);border: 0cap;resize: none;"></textarea>
+                            <textarea id="counter-input" style="height: 70%;width: 90%;background-color: rgb(44, 48, 48);border: 0cap;resize: none;"></textarea>
                         </li>
                         <li>
                             <button>count</button>
