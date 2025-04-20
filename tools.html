@@ -78,11 +78,16 @@
 
             //code for switching tools
 
+            function hideAll(){
+                document.getElementById("default").setAttribute("hidden","")
+                document.getElementById("counter-interface").setAttribute("hidden","")
+                document.getElementById("decrypt-interface").setAttribute("hidden","")
+                document.getElementById("enDecoder-interface").setAttribute("hidden","")
+            }
+
             function switchToEnDeconder(){
                 if(document.getElementById("enDecoder-interface").hidden){
-                    document.getElementById("default").setAttribute("hidden","")
-                    document.getElementById("counter-interface").setAttribute("hidden","")
-                    document.getElementById("decrypt-interface").setAttribute("hidden","")
+                    hideAll()
                     document.getElementById("enDecoder-interface").removeAttribute("hidden")
                 }
                 else{
@@ -92,9 +97,7 @@
             }
             function switchToCounter(){
                 if(document.getElementById("counter-interface").hidden){
-                    document.getElementById("default").setAttribute("hidden","")
-                    document.getElementById("enDecoder-interface").setAttribute("hidden","")
-                    document.getElementById("decrypt-interface").setAttribute("hidden","")
+                    hideAll()
                     document.getElementById("counter-interface").removeAttribute("hidden")
                 }
                 else{
@@ -104,9 +107,7 @@
             }
             function switchToDecrypt(){
                 if(document.getElementById("decrypt-interface").hidden){
-                    document.getElementById("default").setAttribute("hidden","")
-                    document.getElementById("enDecoder-interface").setAttribute("hidden","")
-                    document.getElementById("counter-interface").setAttribute("hidden","")
+                    hideAll()
                     document.getElementById("decrypt-interface").removeAttribute("hidden")
                 }
                 else{
