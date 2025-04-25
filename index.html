@@ -2,11 +2,14 @@
     <head>
         <title>a R3GUL4R website</title>
         <link rel="stylesheet" href="styles.css">
-        <meta name="viewport" content="width=device-width height=device-width">
+        <meta name="viewport" content="height=device-height width=device-width">
     </head>
-    <body >
+    <body>
         <div>
-            <h2 id="title">R3GUL4R's website</h2>
+            <ul style="display: flex;padding: 0;margin: 0;">
+                <h3 id="title">R3GUL4R's website</h3>
+                <button id="nav-button" class="mobile">≡</button>
+            </ul>
         </div>
         <div>
             <ul class="bar" style="padding: 0;">
@@ -16,7 +19,10 @@
               <li class="element-of-bar" style="width: 25%;"><a href="/projects.html"><h2>Projects</h2></a></li>
             </ul>
         </div>
-        <div>
+        <div id="mobile-index" class="mobile">
+            <p style="padding-top: 2cm;margin-top: 8;margin-bottom: 0;">hi there ;)</p>
+        </div>
+        <div id="canvas-div">
           <pre id="canvas" style="color: #fff; white-space: pre;margin: auto;width:15cm ;padding-top: 3cm;height: 80%;"></pre>
           <script src="donut.js"></script>
         </div>

@@ -54,8 +54,8 @@
                             <textarea id="counter-input" style="height: 70%;width: 90%;background-color: rgb(44, 48, 48);border: 0cap;resize: none;"></textarea>
                         </li>
                         <li>
-                            <button>count</button>
-                            number of characters: <p id="count"></p>
+                            <button id="counter-button">count</button>
+                            number of characters: <span id="count"></span>
                         </li>
                     </ul>
                 </li>
@@ -120,6 +120,13 @@
             document.getElementById("enDeButton").onclick = switchToEnDeconder
             document.getElementById("counterButton").onclick = switchToCounter
             document.getElementById("decryptButton").onclick = switchToDecrypt
+
+            //code for lenth ruler
+
+            function calcLength(){
+                let input = document.getElementById("counter-input").value
+                document.getElementById("count").innerHTML = input.length
+            }
 
             //code of the encoding and decoding tool
             Myselect = document.getElementById("encoding-type")
@@ -195,6 +202,7 @@
             
             document.getElementById("Encode").onclick = checkThenCallEn
             document.getElementById("Decode").onclick = checkThenCallDe
+            document.getElementById("counter-button").onclick = calcLength
 
 
         </script>
