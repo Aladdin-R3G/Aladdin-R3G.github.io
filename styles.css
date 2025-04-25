@@ -4,6 +4,7 @@ html {
 
 body {
     height: 100%;
+    width: 100%;
     color: rgb(130, 139, 139);
     background-color: rgb(44, 48, 48);
     
@@ -19,6 +20,9 @@ div {
 }
 
 .bar{
+    display: flex;
+}
+.tools-bar{
     display: flex;
 }
 
@@ -91,4 +95,24 @@ select{
 .tool-button:hover{
     background-color: rgb(100, 109, 109);
     color: rgb(34, 38, 38);
+}
+img{
+    height: 30;
+    width: 30;
+}
+.footer-elements{
+    display: flex;
+}
+@media screen and (width < 413px) {
+    img {
+        height: 40;
+        width: 40;
+    }
+    .footer{
+        height: 9%;
+    }
+    .bar{
+        display: none;
+    }
+
 }

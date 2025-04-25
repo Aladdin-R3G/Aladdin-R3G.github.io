@@ -15,7 +15,7 @@ function donut() {
   const canvasHeight = 24;
   const canvasArea = canvasHeight * canvasWidth;
   const yOffset = 12;
-  const xOffset = 40;
+  const xOffset = 28;
   const innerRadius = 2;
   const r1Points = 90; // 90
   const r2Points = 314; // 314
