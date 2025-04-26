@@ -3,10 +3,24 @@
         <title>a R3GUL4R website</title>
         <link rel="stylesheet" href="styles.css">
         <script src="https://cdn.jsdelivr.net/npm/js-base64@3.7.7/base64.min.js"></script>
+        <meta name="viewport" content="height=device-height width=device-width">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     </head>
     <body>
+        <div id="nav-menu" class="mobile">
+            <ul style="padding: 0;">
+                <li class="element-of-bar"><a href="/index.html"><h2>Home</h2></a></li>
+                <li class="element-of-bar"><a href="/CV.html"><h2>CV</h2></a></li>
+                <li class="element-of-bar"><a href="/tools.html"><h2>Tools</h2></a></li>
+                <li class="element-of-bar"><a href="/projects.html"><h2>Projects</h2></a></li>
+            </ul>
+        </div>
+        <div id="nav-blurr" class="mobile"></div>
         <div>
-            <h2 id="title">R3GUL4R's website</h2>
+            <ul style="display: flex;padding: 0;margin: 0;">
+                <h3 id="title">R3GUL4R's website</h3>
+                <button id="nav-button" class="mobile">≡</button>
+            </ul>
         </div>
         <div>
             <ul class="bar" style="padding: 0;">
@@ -16,8 +30,8 @@
                 <li class="element-of-bar" style="width: 25%;"><a href="/projects.html"><h2>Projects</h2></a></li>
             </ul>
         </div>
-        <div style="padding-top: 0.5cm;height: 80%" >
-            <ul class="tools-bar" style="height: 100%;">
+        <div style="padding-top: 0.5cm;margin-top: 8;height: 76%" name="tools" >
+            <ul class="tools-bar" style="height: 100%; margin: 0;">
                 <li>
                     <ul style="padding-left: 0;">
                         <li class="tool-button" id="enDeButton">encoder/decoder</li>
@@ -29,7 +43,7 @@
                 </li>
                 <li style="width: 79%;" id="default">
                     <h3>Tools</h3>
-                    <p style="width: 80%;">hello there, this is just a collection of tools i find myself googling websites for when i'm participating in a ctf on my windows pc, hope these tools help you in some way</p>
+                    <p style="width: 74%;">hello there, this is just a collection of tools i find myself googling websites for when i'm participating in a ctf on my windows pc, hope these tools help you in some way</p>
                 </li>
                 <li id="enDecoder-interface" style="width: 70%;" hidden>
                     <div>
@@ -67,7 +81,7 @@
             </ul>
         </div>
         <div class="footer">
-            <ul class="bar" style="padding: 0;">
+            <ul class="footer-elements" style="padding: 0;">
                 <li class="element-of-footer"><a href="https://github.com/Aladdin-R3G" target="_blank"><img src="https://i.imgur.com/tXkSwiE.png" width="30" height="30"></a></li>
                 <li class="element-of-footer"><a href="https://unstop.com/u/aladdsai61602" target="_blank"><img src="https://i.imgur.com/Jpgsgqk.png" width="30" height="30"></a></li>
                 <li class="element-of-footer"><a href="http://discordapp.com/users/1293180124543451166" target="_blank"><img src="https://i.imgur.com/M8SxsfO.png" height="30" width="30"></a></li>
@@ -203,6 +217,23 @@
             document.getElementById("Encode").onclick = checkThenCallEn
             document.getElementById("Decode").onclick = checkThenCallDe
             document.getElementById("counter-button").onclick = calcLength
+
+            //mobile functions
+
+            //this makes the menu appear
+            function mobileMenuOn(){
+                $("#nav-blurr").show()
+                $("#nav-menu").animate({left : "50%"})
+            }
+            //this one makes it disappear
+            function mobileMenuOff(){
+                $("#nav-menu").animate({left:"100%"})
+                $("#nav-blurr").hide()
+            }
+
+
+            $("#nav-button").click(mobileMenuOn)
+            $("#nav-blurr").click(mobileMenuOff)
 
 
         </script>
