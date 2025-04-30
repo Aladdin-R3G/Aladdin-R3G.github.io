@@ -106,6 +106,14 @@ img{
 .mobile{
     display: none;
 }
+.interface{
+    width: 79%;
+}
+.content-container{
+    padding-top: 0.5cm;
+    margin-top: 8;
+    height: 76%;
+}
 @media screen and (width < 450px) {
     body{
         margin: 0;
@@ -120,7 +128,18 @@ img{
     .bar{
         display: none;
     }
+    .tool-button{
+        padding: 0.1cm;
+        font-size: 15;
+        width: 30%;
+    }
+    #tools-menu{
+        display: none;
+    }
     .mobile{
+        display: block;
+    }
+    .tools-bar{
         display: block;
     }
     #canvas-div{
@@ -165,5 +184,19 @@ img{
     .element-of-bar {
         text-align: center;
         padding: 0.6cm;
+    }
+    #tools-bar-mobile{
+        display: flex;
+    }
+    select{
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    .interface{
+        margin-top: 8;
+        width: 100%;
+    }
+    .content-container{
+        height: 79%;
     }
 }

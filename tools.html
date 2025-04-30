@@ -30,9 +30,16 @@
                 <li class="element-of-bar" style="width: 25%;"><a href="/projects.html"><h2>Projects</h2></a></li>
             </ul>
         </div>
-        <div style="padding-top: 0.5cm;margin-top: 8;height: 76%" name="tools" >
+        <div class="content-container" >
             <ul class="tools-bar" style="height: 100%; margin: 0;">
-                <li>
+                <li class="mobile">
+                    <ul id="tools-bar-mobile" style="padding-left: 0;">
+                        <li class="tool-button" id="enDeButtonMobile">encoder/decoder</li>
+                        <li class="tool-button" id="counterButtonMobile">length ruler</li>
+                        <li class="tool-button" id="decryptButtonMobile">CTF RSA Decryption</li>
+                    </ul>
+                </li>
+                <li id="tools-menu">
                     <ul style="padding-left: 0;">
                         <li class="tool-button" id="enDeButton">encoder/decoder</li>
                         <br>
@@ -41,13 +48,13 @@
                         <li class="tool-button" id="decryptButton">CTF RSA Decryption</li>
                     </ul>
                 </li>
-                <li style="width: 79%;" id="default">
+                <li class="interface" id="default">
                     <h3>Tools</h3>
                     <p style="width: 74%;">hello there, this is just a collection of tools i find myself googling websites for when i'm participating in a ctf on my windows pc, hope these tools help you in some way</p>
                 </li>
-                <li id="enDecoder-interface" style="width: 70%;" hidden>
+                <li id="enDecoder-interface" class="interface" hidden>
                     <div>
-                        <ul>
+                        <ul style="padding: 0;">
                             <li>
                                 <textarea id="en-input" style="height: 40%;width: 90%;background-color: rgb(44, 48, 48);border: 0cap;resize: none;"></textarea>
                             </li>
@@ -62,8 +69,8 @@
                         </ul>
                     </div>
                 </li>
-                <li id="counter-interface" style="width: 79%;" hidden>
-                    <ul>
+                <li id="counter-interface" class="interface" hidden>
+                    <ul style="padding: 0;">
                         <li>
                             <textarea id="counter-input" style="height: 70%;width: 90%;background-color: rgb(44, 48, 48);border: 0cap;resize: none;"></textarea>
                         </li>
@@ -73,7 +80,7 @@
                         </li>
                     </ul>
                 </li>
-                <li id="decrypt-interface" style="width: 79%;" hidden>
+                <li id="decrypt-interface" class="interface" hidden>
                     <h3>
                         still under construction ;(
                     </h3>
@@ -135,6 +142,10 @@
             document.getElementById("counterButton").onclick = switchToCounter
             document.getElementById("decryptButton").onclick = switchToDecrypt
 
+
+            document.getElementById("enDeButtonMobile").onclick = switchToEnDeconder
+            document.getElementById("counterButtonMobile").onclick = switchToCounter
+            document.getElementById("decryptButtonMobile").onclick = switchToDecrypt
             //code for lenth ruler
 
             function calcLength(){
