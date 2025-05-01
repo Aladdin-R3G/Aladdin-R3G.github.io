@@ -2,10 +2,22 @@
     <head>
         <title>a R3GUL4R website</title>
         <link rel="stylesheet" href="styles.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <meta name="viewport" content="height=device-height width=device-width">
     </head>
     <body >
-        <div>
-            <h2 id="title">R3GUL4R's website</h2>
+        <div id="nav-menu" class="mobile">
+            <ul style="padding: 0;">
+                <li class="element-of-bar"><a href="/index.html"><h2>Home</h2></a></li>
+                <li class="element-of-bar"><a href="/CV.html"><h2>CV</h2></a></li>
+                <li class="element-of-bar"><a href="/tools.html"><h2>Tools</h2></a></li>
+                <li class="element-of-bar"><a href="/projects.html"><h2>Projects</h2></a></li>
+            </ul>
+        </div>
+        <div id="nav-blurr" class="mobile"></div>
+        <div style="display: flex;">
+            <h3 id="title">R3GUL4R's website</h3>
+            <button id="nav-button" class="mobile">≡</button>
         </div>
         <div>
             <ul class="bar" style="padding: 0;">
@@ -15,7 +27,7 @@
                 <li class="element-of-bar" style="width: 25%;"><a href="/projects.html"><h2>Projects</h2></a></li>
             </ul>
         </div>
-        <div style="padding-bottom: 5cm;padding-top: 0.7cm;">
+        <div style="padding-bottom: 0.5cm;padding-top: 0.7cm; margin-top: 8;">
             <h1>My CV</h1>
             <ul>
                 <li class="list-elements">Name: Aladdin Saidi</li>
@@ -44,7 +56,7 @@
             </ul>
         </div>
         <div class="footer">
-            <ul class="bar" style="padding: 0;">
+            <ul class="footer-elements" style="padding: 0;">
                 <li class="element-of-footer"><a href="https://github.com/Aladdin-R3G" style="padding: 10px;" target="_blank"><img src="https://i.imgur.com/tXkSwiE.png" width="30" height="30"></a></li>
                 <li class="element-of-footer"><a href="https://unstop.com/u/aladdsai61602" target="_blank"><img src="https://i.imgur.com/Jpgsgqk.png" width="30" height="30"></a></li>
                 <li class="element-of-footer"><a href="http://discordapp.com/users/1293180124543451166" target="_blank"><img src="https://i.imgur.com/M8SxsfO.png" height="30" width="30"></a></li>
@@ -52,4 +64,21 @@
             </ul>
         </div>
     </body>
+    <script>
+        //this makes the menu appear
+        function mobileMenuOn(){
+                $("#nav-blurr").show()
+                $("#nav-menu").animate({left : "50%"})
+            }
+            //this one makes it disappear
+            function mobileMenuOff(){
+                $("#nav-menu").animate({left:"100%"})
+                $("#nav-blurr").hide()
+            }
+
+
+            $("#nav-button").click(mobileMenuOn)
+            $("#nav-blurr").click(mobileMenuOff)
+
+    </script>
 </html>
